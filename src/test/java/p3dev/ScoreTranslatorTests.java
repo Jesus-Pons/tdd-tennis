@@ -10,7 +10,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ScoreTranslatorTests {
     static Stream<TestCase> testCasesProvider(){
         return Stream.of(
-                new TestCase(0,0, "love-love")
+                new TestCase(0,0, "love-love"),
+                new TestCase(1,0,"fifteen-love")
         );
     }
 
