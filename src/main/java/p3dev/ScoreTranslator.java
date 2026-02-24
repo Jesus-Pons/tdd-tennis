@@ -2,11 +2,24 @@ package p3dev;
 
 public class ScoreTranslator {
 
+    private final IScoreRule[] rules;
+
+    public ScoreTranslator(){
+        rules = new IScoreRule[]{
+                new DeuceScoreRule(),
+                new TieScoreRule(),
+                new RegularScoreRule()
+        };
+    }
+
     private final String[] scoreNames = {"love","fifteen","thirty","forty"};
 
     public String translate(int scorePlayerOne, int scorePlayerTwo){
-        if(scorePlayerOne == 3 && scorePlayerTwo== 3) return "deuce";
-        if(scorePlayerOne==scorePlayerTwo && scorePlayerOne>0) return scoreNames[scorePlayerOne]+"-all";
-        return scoreNames[scorePlayerOne] + "-" + scoreNames[scorePlayerTwo];
+        for (IScoreRule rule: rules){
+            if (rule.applies(scorePlayerOne,scorePlayerTwo)){
+                return rule.getScore(scorePlayerOne, scorePlayerTwo);
+            }
+        }
+        return "invalid score";
     }
 }
