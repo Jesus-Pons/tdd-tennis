@@ -2,10 +2,9 @@ package p3dev;
 
 public class ScoreTranslator {
 
+    private final String[] scoreNames = {"love","fifteen","thirty","forty"};
+
     public String translate(int scorePlayerOne, int scorePlayerTwo){
-        if (scorePlayerOne == 1 && scorePlayerTwo == 0) return "fifteen-love";
-        else if(scorePlayerOne ==2 && scorePlayerTwo == 0) return "thirty-love";
-        else if(scorePlayerOne==3 && scorePlayerTwo==0)return "forty-love";
-        return "love-love";
+        return scoreNames[scorePlayerOne] + "-" + scoreNames[scorePlayerTwo];
     }
 }
