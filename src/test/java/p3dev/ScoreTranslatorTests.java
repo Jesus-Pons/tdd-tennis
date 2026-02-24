@@ -18,7 +18,14 @@ public class ScoreTranslatorTests {
                 new TestCase(2,2,"thirty-all"),
                 new TestCase(3,3,"deuce"),
                 new TestCase(4,3,"Advantage player 1"),
-                new TestCase(3,4,"Advantage player 2")
+                new TestCase(3,4,"Advantage player 2"),
+                new TestCase(4, 0, "Player 1 wins"),
+                new TestCase(0, 4, "Player 2 wins"),
+                new TestCase(4, 2, "Player 1 wins"),
+                new TestCase(2, 4, "Player 2 wins"),
+                new TestCase(5, 3, "Player 1 wins"),
+                new TestCase(3, 5, "Player 2 wins"),
+                new TestCase(8, 6, "Player 1 wins")
         );
     }
 
