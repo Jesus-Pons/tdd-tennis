@@ -7,6 +7,7 @@ public class ScoreTranslator {
     public ScoreTranslator(){
         rules = new IScoreRule[]{
                 new DeuceScoreRule(),
+                new AdvantageScoreRule(),
                 new TieScoreRule(),
                 new RegularScoreRule()
         };
