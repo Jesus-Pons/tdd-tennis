@@ -37,4 +37,34 @@ public class MatchSimulatorTest {
 
         verify(mockProvider, times(16)).getNextPointWinner();
     }
+
+    @Test
+    void should_continue_match_beyond_four_games_if_difference_is_less_than_two() {
+        ScoreTranslator translator = new ScoreTranslator();
+        PointProvider mockProvider = mock(PointProvider.class);
+
+        Integer[] pointSequence = new Integer[] {
+                1,1,1,1,
+                2,2,2,2,
+                1,1,1,1,
+                2,2,2,2,
+                1,1,1,1,
+                2,2,2,2,
+                1,1,1,1,
+                1,1,1,1
+        };
+
+        when(mockProvider.getNextPointWinner()).thenReturn(
+                pointSequence[0],
+                java.util.Arrays.copyOfRange(pointSequence, 1, pointSequence.length)
+        );
+
+        MatchSimulator simulator = new MatchSimulator(translator, mockProvider);
+
+        String matchResult = simulator.playMatch();
+
+        assertEquals("Match won by Player 1, Score: 5-3", matchResult);
+
+        verify(mockProvider, times(32)).getNextPointWinner();
+    }
 }
