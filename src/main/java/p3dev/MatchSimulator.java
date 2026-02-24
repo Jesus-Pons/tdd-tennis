@@ -35,13 +35,18 @@ public class MatchSimulator {
                 gamePointsP1 = 0;
                 gamePointsP2 = 0;
                 System.out.println("Marcador del partido: " + matchGamesP1 + "-" + matchGamesP2);
-                System.out.println("Marcador del juego: " + scoreTranslator.translate(gamePointsP1, gamePointsP2));
+                if(!isMatchWon(matchGamesP1,matchGamesP2)){
+                    System.out.println("Marcador del juego: " + scoreTranslator.translate(gamePointsP1, gamePointsP2));
+                }
+
             } else if (gameScore.equals("Player 2 wins")) {
                 matchGamesP2++;
                 gamePointsP1 = 0;
                 gamePointsP2 = 0;
                 System.out.println("Marcador del partido: " + matchGamesP1 + "-" + matchGamesP2);
-                System.out.println("Marcador del juego: " + scoreTranslator.translate(gamePointsP1, gamePointsP2));
+                if(!isMatchWon(matchGamesP1,matchGamesP2)){
+                    System.out.println("Marcador del juego: " + scoreTranslator.translate(gamePointsP1, gamePointsP2));
+                }
             }
         }
 

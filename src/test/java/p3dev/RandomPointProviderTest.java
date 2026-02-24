@@ -12,7 +12,6 @@ public class RandomPointProviderTest {
         for (int i = 0; i < 1000; i++) {
             int result = provider.getNextPointWinner();
 
-            // Verificamos el contrato: Solo puede ser 1 o 2
             assertTrue(result == 1 || result == 2,
                     "El proveedor devolvió un valor inválido: " + result);
         }
