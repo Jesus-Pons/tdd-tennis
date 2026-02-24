@@ -15,7 +15,8 @@ public class ScoreTranslatorTests {
                 new TestCase(2,0,"thirty-love"),
                 new TestCase(3,0,"forty-love"),
                 new TestCase(1,1,"fifteen-all"),
-                new TestCase(2,2,"thirty-all")
+                new TestCase(2,2,"thirty-all"),
+                new TestCase(3,3,"deuce")
         );
     }
 
